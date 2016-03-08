@@ -1,65 +1,86 @@
-# Just Digital Code Style
+# Coding Standards
 
-1. Configure o seu editor
+## Text editor configurations:
+Indentation: 2 spaces
+Encoding: utf-8
 
-  Certifique-se de utilizar identação de 2 espaços
-  
-  Não esqueça de salvar arquivos em utf-8
-
-2. Seja cuidado com a sua nomenclatura
-
-
-	var gato -> é uma variável
-
-	var gatos -> é um array
-
-4. Faça bons comentários. Não caia na armadilha de "tudo óbvio", quanto mais informações melhor
-
-3. Não confie apenas nos comentários, escreva tudo com nomes descritivos
-
-## Variáveis
+## Commenting
+Single item commenting:
 ```Javascript
-// Sempre declare variáveis no topo do escopo que estiver trabalhando
-var foo = "";
-var bar = 0;
+var name = ""; // this is the user name
+var age = 0;  // this is the user age
+```
+Block commenting:
+```Javascript
+/*
+ * this will do that thing when foo is exactly equals bar.
+ */
+if (foo === bar) {
+  doIt();
+}
+```
+Do not rely only on comments. Use good variable names:
+```Javascript
+var myVar = "foo"; // This is the user name (bad)
+var userName = "foo"; // This is the user name (good)
 ```
 
-## Nomenclaturas
+## Variables
+Always declare variables at the beginning of the scope they are used:
 ```Javascript
-var fruta = 'tomate'; // recebe uma string;
-var frutas = ['tomate', 'abacaxi', 'banana']; // recebe um array
-```
-## Condições
-Espaços em branco podem ajudar na leitura
+function fooAndBar () {
+  var foo = "";
+  var bar = 0;
 
+  doThat(foo, bar);
+}
+```
+Use plural for arrays:
+```Javascript
+var fruit = 'apple'; // a single string for fruit
+var fruits = ['tomato', 'apple', 'banana']; // an array of fruits for fruits
+```
+
+## Conditions
+Use spaces before opening parenthesis and after closing them:
 ```javascript
-// Bom
+/*
+ * Good:
+ */
 if (true) {
-  // instruções
-  } else {
-  // instruções
+  foo();
+} else {
+  bar();
 }
 
-// Ruim
+/*
+ * Bad
+ */
 if(true){
- ...
- }esle{
-  ...
+  foo();
+} else{
+  bar();
 }
 ```
-## Funções
+TODO: } else {
 
+## Functions
+Use camelCase for function names:
 ```Javascript
-// Bom (CamelCase e espaços em branco para facilitar a leitura
-function myTestFunction(x, y) {
+/*
+ * good stuff:
+ * pascal case for names
+ */
+function myTestFunction (x, y) {
 
 }
 
-teste(foo, bar);
-
-// Ruim (sem CamelCase e sem espaços para facilitar a leitura
+/*
+ * bad stuff
+ * underlines, capital for first letter
+ */
 function My_test_function(foo,bar){
 
 }
-
-My_test_function(foo,bar);
+```
+TODO: spaces before and after parenthesis
